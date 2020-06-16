@@ -1,0 +1,33 @@
+import camion2.*
+
+import camion.*
+import cosas2.*
+
+test "camion" {
+	
+	arenaAGranel.setPesoArena(150)
+	paqueteDeLadrillos.setCantidad(80)
+	residuosRadioactivos.setPeso(20)
+	embalajeDeSeguridad.setContenido(knightRider)
+	camion.cargar(knightRider)
+	camion.cargar(bumblebee)
+	camion.cargar(paqueteDeLadrillos)
+	camion.cargar(arenaAGranel)
+	camion.cargar(bateriaAntiaerea)
+	camion.cargar(residuosRadioactivos)
+	camion.cargar(embalajeDeSeguridad)
+	
+	assert.that(camion.todoPesoPar())
+	assert.notThat(camion.hayAlgunoQuePesa(35))
+	//assert.equals(arenaAGranel,camion.elDeNivel(1))
+	assert.equals(2349,camion.pesoTotal())
+	assert.notThat(camion.excedidoDePeso())
+	assert.equals([bateriaAntiaerea,residuosRadioactivos],camion.objetosQueSuperanPeligrosidad(50))
+	assert.equals([residuosRadioactivos],camion.objetosMasPeligrososQue(bateriaAntiaerea))
+	assert.notThat(camion.puedeCircularEnRuta(199))
+	assert.that(camion.tieneAlgoQuePesaEntre(700,900))
+	assert.equals(bumblebee,camion.cosaMasPesada())
+	assert.equals([500,800,184,170,300,35,500],camion.pesos())
+	
+	/* los test en general estan fallando. No encuentro razon. No sé por donde encarar */
+}

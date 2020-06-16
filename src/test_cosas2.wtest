@@ -1,0 +1,23 @@
+import cosas2.*
+
+test "cantidad bultos" {
+	
+	assert.equals(1,knightRider.bultos())
+	assert.equals(2,bumblebee.bultos())
+	paqueteDeLadrillos.setCantidad(100)
+	assert.equals(1,paqueteDeLadrillos.bultos())
+	paqueteDeLadrillos.setCantidad(101)
+	assert.equals(2,paqueteDeLadrillos.bultos())
+	paqueteDeLadrillos.setCantidad(301)
+	assert.equals(3,paqueteDeLadrillos.bultos())
+	assert.equals(1,arenaAGranel.bultos())
+	bateriaAntiaerea.setTieneMisiles(true)
+	assert.equals(2,bateriaAntiaerea.bultos())
+	bateriaAntiaerea.setTieneMisiles(false)
+	assert.equals(1,bateriaAntiaerea.bultos())	
+	assert.equals(1,contenedorPortuario.bultos())
+	contenedorPortuario.setContenido(bumblebee)
+	assert.equals(3,contenedorPortuario.bultos())
+	assert.equals(1,residuosRadioactivos.bultos())
+	assert.equals(2,embalajeDeSeguridad.bultos())
+}
